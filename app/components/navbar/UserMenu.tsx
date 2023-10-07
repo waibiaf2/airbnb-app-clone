@@ -1,10 +1,18 @@
 'use client';
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {AiOutlineMenu} from "react-icons/ai";
 import Avatar from "@/app/components/Avatar";
+import MenuItem from "@/app/components/navbar/MenuItem";
 
+// @ts-ignore
 const UserMenu = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleOpen = useCallback(() => {
+        setIsOpen((value) => !value);
+    },[]);
+
     return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
@@ -23,10 +31,11 @@ const UserMenu = () => {
                     Airbnb Your Home
                 </div>
                 <div
-                    onClick={() => {}}
+                    onClick={toggleOpen}
                     className="
                         px-4
-                        md:py-1
+                        py-3
+                        md:py-2
                         md:px-2
                         border-[1px]
                         border-neutral-200
@@ -40,13 +49,37 @@ const UserMenu = () => {
                         transition
                     "
                 >
-                    <AiOutlineMenu/>
+                    <AiOutlineMenu />
                     <div className="hidden md:block">
                         <Avatar/>
                     </div>
-
                 </div>
-
+                {isOpen &&
+                    <div className="
+                        absolute
+                        rounded-xl
+                        shadow-md
+                        w-[40vw]
+                        md:w-3/4
+                        overflow-hidden
+                        right-0
+                        top-12
+                        text-sm
+                    ">
+                        <div className="flex flex-col cursor-pointer">
+                            <>
+								<MenuItem
+									onClick={() => {}}
+									label="Login"
+								/>
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Signup"
+                                />
+                            </>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );
