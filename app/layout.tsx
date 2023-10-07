@@ -1,15 +1,15 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import {Nunito} from 'next/font/google';
+
+export const metadata: Metadata = {
+  title: 'Airbnb',
+  description: 'Airbnb Clones',
+}
 
 const font = Nunito({
   subsets: ["latin"],
 })
-
-export const metadata: Metadata = {
-  title: 'Airbnb',
-  description: 'Airbnb Clone',
-}
 
 export default function RootLayout({
   children,
