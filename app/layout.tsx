@@ -12,13 +12,13 @@ const font = Nunito({
 })
 
 export default function RootLayout({
-  children,
-}: {
+                                     children,
+                                   }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+      <html lang="en">
       <body className={font.className}>{children}</body>
-    </html>
+      </html>
   )
 }
