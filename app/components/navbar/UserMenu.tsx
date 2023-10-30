@@ -22,11 +22,11 @@ const UserMenu = () => {
                         md:block
                         text-sm
                         font-semibold
-                         py-3 px-4
-                         rounded-full
-                          hover:bg-neutral-100
-                          transition
-                           cursor-pointer"
+                        py-3 px-4
+                        rounded-full
+                        hover:bg-neutral-100
+                        transition
+                        cursor-pointer"
                 >
                     Airbnb Your Home
                 </div>
@@ -34,7 +34,6 @@ const UserMenu = () => {
                     onClick={toggleOpen}
                     className="
                         px-4
-                        py-3
                         md:py-2
                         md:px-2
                         border-[1px]
@@ -61,11 +60,12 @@ const UserMenu = () => {
                         shadow-md
                         w-[40vw]
                         md:w-3/4
+                        bg-white
                         overflow-hidden
                         right-0
                         top-12
-                        text-sm
-                    ">
+                        text-sm"
+                    >
                         <div className="flex flex-col cursor-pointer">
                             <>
 								<MenuItem
