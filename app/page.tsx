@@ -1,7 +1,7 @@
-import Image from 'next/image'
+import Navbar from "@/app/components/navbar/navbar";
 
 export default function Home() {
   return (
-      <h1 className="text-4xl bg-red-100 p-10 capitalize">Hello Airbnb</h1>
+      <div>This is home</div>
   )
 }
