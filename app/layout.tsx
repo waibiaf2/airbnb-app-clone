@@ -12,23 +12,24 @@ export const metadata: Metadata = {
 
 const font = Nunito({
     subsets: ["latin"],
-})
+});
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default function RootLayout({ children }: {
     children: React.ReactNode
 }) {
     return (
         <html lang="en">
         <body className={font.className}>
         <ClientOnly>
-            <Modal isOpen/>
+            <Modal
+                isOpen
+                title={'Join Our Team Today!'}
+			/>
             <Navbar/>
         </ClientOnly>
         {children}
         </body>
         </html>
-    )
+    );
 }
 
