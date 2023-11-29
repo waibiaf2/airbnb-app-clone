@@ -34,7 +34,7 @@ const Button:React.FC<ButtonProps> = ({
 				py-3
 				${outline ? 'bg-white' : 'bg-rose-500'}
 				${outline ? 'border-black' : 'border-rose-500'}
-				${outline ? 'text-gray-950' : 'text-white'}
+				${outline ? 'text-black' : 'text-white'}
 				${small ? 'py-1' : 'py-3'}
 				${small ? 'text-sm' : 'text-md'}
 				${small ? 'font-light' : 'font-semibold'}
@@ -47,7 +47,7 @@ const Button:React.FC<ButtonProps> = ({
 					className="
 						absolute
 						left-4
-						top-3d
+						top-3
 					"
 				/>
 			)}

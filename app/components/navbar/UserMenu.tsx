@@ -4,14 +4,59 @@ import React, {useCallback, useState} from 'react';
 import {AiOutlineMenu} from "react-icons/ai";
 import Avatar from "@/app/components/Avatar";
 import MenuItem from "@/app/components/navbar/MenuItem";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLogInModal from "@/app/hooks/useLoginModal";
+import {User} from "@prisma/client";
+import {signOut} from "next-auth/react";
+
+interface UserMenuProps {
+	currentUser: User | null
+}
 
 // @ts-ignore
-const UserMenu = () => {
+const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
+	const registerModal = useRegisterModal();
+	const logInModal = useLogInModal();
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
     },[]);
+	
+	const loggedInUserMenuItems = <>
+		<MenuItem
+			onClick={() => {}}
+			label="My trips"
+		/>
+		<MenuItem
+			onClick={() => {}}
+			label="My favourites"
+		/>
+		<MenuItem
+			onClick={() => {}}
+			label="My properties"
+		/>
+		<MenuItem
+			onClick={() => {}}
+			label="Airbnb my home"
+		/>
+		<hr/>
+		<MenuItem
+			onClick={() => signOut()}
+			label="Logout"
+		/>
+	</>;
+	
+	const notLoggedUserMenuItems = <>
+		<MenuItem
+			onClick={logInModal.onOpen}
+			label="Login"
+		/>
+		<MenuItem
+			onClick={registerModal.onOpen}
+			label="Signup"
+		/>
+	</>
 
     return (
         <div className="relative">
@@ -67,16 +112,7 @@ const UserMenu = () => {
                         text-sm"
                     >
                         <div className="flex flex-col cursor-pointer">
-                            <>
-								<MenuItem
-									onClick={() => {}}
-									label="Login"
-								/>
-                                <MenuItem
-                                    onClick={() => {}}
-                                    label="Signup"
-                                />
-                            </>
+							{currentUser ? loggedInUserMenuItems : notLoggedUserMenuItems}
                         </div>
                     </div>
                 }

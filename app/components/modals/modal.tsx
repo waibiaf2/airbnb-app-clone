@@ -3,7 +3,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {IoMdClose} from "react-icons/io";
 import Button from "@/app/components/Button";
-import {FcGoogle} from "react-icons/fc";
+
 
 interface ModalProps {
     isOpen?: boolean;
@@ -68,9 +68,9 @@ const Modal:React.FC<ModalProps> = ({
     return (
         <>
             <div className="
+            	flex
 				justify-center
 				items-center
-				flex
 				overflow-x-hidden
 				overflow-y-auto
 				fixed
@@ -164,15 +164,14 @@ const Modal:React.FC<ModalProps> = ({
 											label={secondaryActionLabel}
 										/>
 									)}
-									
                                     <Button
                                         onClick={handleSubmit}
 										disabled={disabled}
                                         label={actionLabel}
                                     />
                                 </div>
-                            </div>
-                            
+								{footer}
+							</div>
                         </div>
                     </div>
 
