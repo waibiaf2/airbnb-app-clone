@@ -6,11 +6,11 @@ import Avatar from "@/app/components/Avatar";
 import MenuItem from "@/app/components/navbar/MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLogInModal from "@/app/hooks/useLoginModal";
-import {User} from "@prisma/client";
 import {signOut} from "next-auth/react";
+import {SafeUser} from "@/app/types";
 
 interface UserMenuProps {
-	currentUser: User | null
+	currentUser: SafeUser | null
 }
 
 // @ts-ignore
@@ -57,13 +57,14 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
 			label="Signup"
 		/>
 	</>);
-
-    return (
-        <div className="relative">
-            <div className="flex flex-row items-center gap-3">
-                <div
-                    onClick={() => {}}
-                    className="hidden
+	
+	return (
+		<div className="relative">
+			<div className="flex flex-row items-center gap-3">
+				<div
+					onClick={() => {
+					}}
+					className="hidden
                         md:block
                         text-sm
                         font-semibold
@@ -72,12 +73,12 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
                         hover:bg-neutral-100
                         transition
                         cursor-pointer"
-                >
-                    Airbnb Your Home
-                </div>
-                <div
-                    onClick={toggleOpen}
-                    className="
+				>
+					Airbnb Your Home
+				</div>
+				<div
+					onClick={toggleOpen}
+					className="
                         px-4
                         md:py-2
                         md:px-2
@@ -92,14 +93,14 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
                         hover:shadow-md
                         transition
                     "
-                >
-                    <AiOutlineMenu />
-                    <div className="hidden md:block">
-                        <Avatar/>
-                    </div>
-                </div>
-                {isOpen &&
-                    <div className="
+				>
+					<AiOutlineMenu/>
+					<div className="hidden md:block">
+						<Avatar src={currentUser?.image}/>
+					</div>
+				</div>
+				{isOpen &&
+					<div className="
                         absolute
                         rounded-xl
                         shadow-md
@@ -110,15 +111,15 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
                         right-0
                         top-12
                         text-sm"
-                    >
-                        <div className="flex flex-col cursor-pointer">
+					>
+						<div className="flex flex-col cursor-pointer">
 							{currentUser ? loggedInUserMenuItems : notLoggedUserMenuItems}
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    );
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	);
 };
 
 export default UserMenu;
