@@ -23,7 +23,7 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
         setIsOpen((value) => !value);
     },[]);
 	
-	const loggedInUserMenuItems = <>
+	const loggedInUserMenuItems = (<>
 		<MenuItem
 			onClick={() => {}}
 			label="My trips"
@@ -45,9 +45,9 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
 			onClick={() => signOut()}
 			label="Logout"
 		/>
-	</>;
+	</>);
 	
-	const notLoggedUserMenuItems = <>
+	const notLoggedUserMenuItems = (<>
 		<MenuItem
 			onClick={logInModal.onOpen}
 			label="Login"
@@ -56,7 +56,7 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
 			onClick={registerModal.onOpen}
 			label="Signup"
 		/>
-	</>
+	</>);
 
     return (
         <div className="relative">
