@@ -8,7 +8,7 @@ import UserMenu from "@/app/components/navbar/UserMenu";
 import {SafeUser} from "@/app/types";
 
 interface NavBarProps {
-	currentUser?: SafeUser | null
+	currentUser?: SafeUser | null;
 }
 
 const Navbar:React.FC<NavBarProps> = ({
